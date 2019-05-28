@@ -1,5 +1,7 @@
 import Component from './Component.js';
 import Header from './Header.js';
+import CharacterList from './Character-List.js';
+
 
 class App extends Component {
     render() {
@@ -10,6 +12,9 @@ class App extends Component {
 
         const main = dom.querySelector('main');
         dom.insertBefore(headerDOM, main);
+
+        const characterList = new CharacterList({});
+        main.appendChild(characterList.render());
 
         return dom;
     }
