@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+
 .character-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    border: 1px solid green;
+    border: 3px solid green;
     padding: 5px;
     width: 250px;
     height: 300px;
@@ -14,4 +16,8 @@
 
 .character-item img {
     width: 100%;
+}
+
+h2 {
+    font-family: 'Indie Flower', cursive;
 }
