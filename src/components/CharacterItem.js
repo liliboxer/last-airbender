@@ -9,7 +9,7 @@ class CharacterItem extends Component {
         }
 
         return /*html*/ `
-            <li>
+            <li class="character-item">
                 <h2>${character.name}</h2>
                 <img src="${character.photoUrl}" alt="${character.name}">
             </li>
