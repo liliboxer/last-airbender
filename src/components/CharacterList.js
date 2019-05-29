@@ -8,8 +8,9 @@ class CharacterList extends Component {
         this.props.characters.forEach(character => {
             const characterItem = new CharacterItem({ character });
             list.appendChild(characterItem.render());
-
         });
+
+        console.log('list', list);
 
         return list;
     }

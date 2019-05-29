@@ -20,13 +20,27 @@ class App extends Component {
         const loading = new Loading({ loading: true });
         main.appendChild(loading.render());
 
-        chractersApi.getCharacters()
-            .then(characters => {
-                characterList.update({ characters });
-            })
-            .finally(() => {
-                loading.update({ loading: false });
-            });
+
+        function loadEnemies() {
+            const params = window.location.hash.slice(1);
+
+            const searchParams = new URLSearchParams(params);
+            const search = searchParams.get('enemies');
+
+            chractersApi.getCharacters(search)
+                .then(characters => {
+                    characterList.update({ characters });
+                })
+                .finally(() => {
+                    loading.update({ loading: false });
+                });
+        }
+
+        loadEnemies();
+
+        window.addEventListener('hashchange', () => {
+            loadEnemies();
+        });
             
 
         return dom;
