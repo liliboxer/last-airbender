@@ -12,6 +12,10 @@ class CharacterItem extends Component {
             <li class="character-item">
                 <h2>${character.name}</h2>
                 <img src="${character.photoUrl}" alt="${character.name}">
+                <div class="search">
+                    <a href="">Enemies</a>
+                    <a href="">Allies</a>
+                </div>
             </li>
         `;
     }
