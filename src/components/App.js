@@ -1,6 +1,7 @@
 import Component from './Component.js';
 import Header from './Header.js';
 import CharacterList from './CharacterList.js';
+import chractersApi from '../services/characters-api.js';
 
 
 class App extends Component {
@@ -13,8 +14,14 @@ class App extends Component {
         const main = dom.querySelector('main');
         dom.insertBefore(headerDOM, main);
 
-        const characterList = new CharacterList({});
+        const characterList = new CharacterList({ characters: [] });
         main.appendChild(characterList.render());
+
+        chractersApi.getCharacters()
+            .then(characters => {
+                characterList.update({ characters });
+            });
+            
 
         return dom;
     }
