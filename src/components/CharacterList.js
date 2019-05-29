@@ -10,8 +10,6 @@ class CharacterList extends Component {
             list.appendChild(characterItem.render());
         });
 
-        console.log('list', list);
-
         return list;
     }
 

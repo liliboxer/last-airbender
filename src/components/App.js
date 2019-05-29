@@ -21,11 +21,11 @@ class App extends Component {
         main.appendChild(loading.render());
 
 
-        function loadEnemies() {
+        function loadCharacters() {
             const params = window.location.hash.slice(1);
-
             const searchParams = new URLSearchParams(params);
             const search = searchParams.get('enemies');
+            
 
             chractersApi.getCharacters(search)
                 .then(characters => {
@@ -36,10 +36,10 @@ class App extends Component {
                 });
         }
 
-        loadEnemies();
+        loadCharacters();
 
         window.addEventListener('hashchange', () => {
-            loadEnemies();
+            loadCharacters();
         });
             
 
