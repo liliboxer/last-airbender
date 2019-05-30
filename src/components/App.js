@@ -5,7 +5,7 @@ import chractersApi from '../services/characters-api.js';
 import Loading from './Loading.js';
 
 class App extends Component {
-    function loadCharacters() {
+    loadCharacters(characterList, loading) {
         const params = window.location.hash.slice(1);
         chractersApi.getCharacters(params)
             .then(characters => {
@@ -31,10 +31,10 @@ class App extends Component {
         const loading = new Loading({ loading: true });
         main.appendChild(loading.render());
 
-        loadCharacters();
+        this.loadCharacters(characterList, loading);
 
         window.addEventListener('hashchange', () => {
-            loadCharacters();
+            this.loadCharacters(characterList, loading);
         });
             
 
