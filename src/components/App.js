@@ -3,6 +3,7 @@ import Header from './Header.js';
 import CharacterList from './CharacterList.js';
 import chractersApi from '../services/characters-api.js';
 import Loading from './Loading.js';
+import Types from './Types.js';
 
 class App extends Component {
     loadCharacters(a, b) {
@@ -24,6 +25,9 @@ class App extends Component {
 
         const main = dom.querySelector('main');
         dom.insertBefore(headerDOM, main);
+
+        const types = new Types();
+        main.appendChild(types.render());
 
         const characterList = new CharacterList({ characters: [] });
         main.appendChild(characterList.render());
