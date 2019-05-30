@@ -5,6 +5,17 @@ import chractersApi from '../services/characters-api.js';
 import Loading from './Loading.js';
 
 class App extends Component {
+    function loadCharacters() {
+        const params = window.location.hash.slice(1);
+        chractersApi.getCharacters(params)
+            .then(characters => {
+                characterList.update({ characters });
+            })
+            .finally(() => {
+                loading.update({ loading: false });
+            });
+    }
+
     render() {
         const dom = this.renderDOM();
 
@@ -19,19 +30,6 @@ class App extends Component {
 
         const loading = new Loading({ loading: true });
         main.appendChild(loading.render());
-
-
-        function loadCharacters() {
-            const params = window.location.hash.slice(1);
-            console.log(params);
-            chractersApi.getCharacters(params)
-                .then(characters => {
-                    characterList.update({ characters });
-                })
-                .finally(() => {
-                    loading.update({ loading: false });
-                });
-        }
 
         loadCharacters();
 
