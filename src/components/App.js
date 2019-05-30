@@ -5,14 +5,14 @@ import chractersApi from '../services/characters-api.js';
 import Loading from './Loading.js';
 
 class App extends Component {
-    loadCharacters(characterList, loading) {
+    loadCharacters(a, b) {
         const params = window.location.hash.slice(1);
         chractersApi.getCharacters(params)
             .then(characters => {
-                characterList.update({ characters });
+                a.update({ characters });
             })
             .finally(() => {
-                loading.update({ loading: false });
+                b.update({ loading: false });
             });
     }
 

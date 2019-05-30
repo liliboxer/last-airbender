@@ -5,7 +5,7 @@ class Header extends Component {
         return /*html*/ `
             <header>
                 <h1>The Last Airbender</h1>
-                <a href="">Show All</a>
+                <a href="">Show All Characters</a>
             </header>
         `;
     }
