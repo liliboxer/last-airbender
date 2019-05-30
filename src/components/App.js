@@ -3,7 +3,7 @@ import Header from './Header.js';
 import CharacterList from './CharacterList.js';
 import chractersApi from '../services/characters-api.js';
 import Loading from './Loading.js';
-import Types from './Types.js';
+import Filter from './Filter.js';
 
 class App extends Component {
     loadCharacters(a, b) {
@@ -26,8 +26,8 @@ class App extends Component {
         const main = dom.querySelector('main');
         dom.insertBefore(headerDOM, main);
 
-        const types = new Types();
-        main.appendChild(types.render());
+        const filter = new Filter({});
+        main.appendChild(filter.render());
 
         const characterList = new CharacterList({ characters: [] });
         main.appendChild(characterList.render());
